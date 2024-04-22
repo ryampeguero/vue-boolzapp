@@ -63,7 +63,8 @@
                     <!-- Search -->
                     <div class="search-section col flex">
                         <span><i class="fa-solid fa-magnifying-glass"></i></span>
-                        <input id="search" type="text" placeholder="Cerca o inizia una nuova chat" @keyup="searchUser" v-model="searchName">
+                        <input id="search" type="text" placeholder="Cerca o inizia una nuova chat" @keyup="searchUser"
+                            v-model="searchName">
                     </div>
                     <!-- /Search -->
 
@@ -71,7 +72,8 @@
                     <div class="main-section col">
                         <!-- Contacts -->
                         <!-- Contact1 -->
-                        <div v-for="(curContact, index) in contacts" class="contact-card flex" @click="selectContact(index)" v-show="curContact.visible">
+                        <div v-for="(curContact, index) in contacts" class="contact-card flex"
+                            @click="selectContact(index)" v-show="curContact.visible">
                             <div class="user-icon">
                                 <img :src="`./img/avatar${curContact.avatar}.jpg`" :alt="curContact.name">
                             </div>
@@ -131,14 +133,23 @@
                     <div class="text-section col flex wrap">
 
                         <!-- Answer -->
-                        <div v-for="(curContact, index) in contacts[activeContact].messages" class="text-container p-t-40" :class="(curContact.status === 'sent') ? 'flex-end' : ''">
+                        <div v-for="(curContact, index) in contacts[activeContact].messages" class="text-container"
+                            :class="(curContact.status === 'sent') ? 'flex-end' : ''">
                             <div class="flex" :class="(curContact.status === 'sent') ? 'answer' : 'response'">
                                 <p class="p-r-20 text-message">
                                     {{curContact.message}}
                                 </p>
+                                <!-- @click="deleteMessage(index)" -->
                                 <span class="align-self-ends">
                                     <ul class="flex-column space-between preview">
-                                        <li><i class="fa-solid fa-chevron-down"></i></li>
+                                        <li>
+                                            <i class="fa-solid fa-chevron-down dropdown">
+                                                <div class="dropdown-content">
+                                                    <span @click="deleteMessage(index)">Elimina messaggio</span>
+                                                </div>
+                                            </i>
+                                        </li>
+
                                         <li class="">
                                             {{curContact.date}}
                                         </li>
@@ -148,7 +159,7 @@
                         </div>
                         <!-- /Answer -->
 
-                        
+
                     </div>
                     <!-- /Main -->
 
@@ -160,7 +171,8 @@
                         </span>
 
                         <span class="type-box">
-                            <input id="typewriter" type="text" placeholder="Scrivi un messaggio" v-model="userText" @keyup.enter="sendText">
+                            <input id="typewriter" type="text" placeholder="Scrivi un messaggio" v-model="userText"
+                                @keyup.enter="sendText">
                         </span>
 
                         <span class="type-icon">

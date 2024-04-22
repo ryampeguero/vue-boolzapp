@@ -7,6 +7,7 @@
     --text-container-width: 400px;
     --type-section-width: 40px;
 }
+
 /* RESET */
 * {
     margin: 0;
@@ -39,6 +40,7 @@ button {
     color: #B1B1B1;
     font-size: 1.4rem;
 }
+
 /* COMMON */
 /* Layout */
 .container {
@@ -46,7 +48,7 @@ button {
     width: 80vw;
     max-width: 1000px;
     height: 80vh;
-    
+
     position: fixed;
     top: 50px;
     left: 0;
@@ -56,6 +58,7 @@ button {
     /* debug */
     /* border: 1px solid black; */
 }
+
 .col {
     width: 100%;
     /* debug */
@@ -99,12 +102,13 @@ button {
 }
 
 .p-t-60 {
-    padding-top:60px;
+    padding-top: 60px;
 }
 
 .p-t-40 {
-    padding-top: 40px;
+    /* padding-top: 40px; */
 }
+
 .p-r-20 {
     padding-right: 60px;
 }
@@ -119,15 +123,15 @@ button {
 /* MAIN */
 .col-scroll {
     width: var(--scroll-col-width);
-  
+
     /* debug */
-      /* height: 100%; */
+    /* height: 100%; */
     /* border: 1px solid black; */
 }
 
 .col-main {
     width: calc(100% - var(--scroll-col-width));
-    
+
     /* debug */
     /* height: 100%; */
     /* border: 1px solid black; */
@@ -148,7 +152,8 @@ button {
     /* debug */
     /* background-color: white; */
 }
-.user-icon img{
+
+.user-icon img {
     display: block;
     width: 40px;
     height: 40px;
@@ -160,8 +165,8 @@ button {
     margin: 10px;
     color: #B1B1B1;
     font-size: 1.4rem;
-    
-    /* debug */ 
+
+    /* debug */
     /* background-color: white; */
     /* border: 1px solid black; */
 }
@@ -219,21 +224,21 @@ button {
     height: 20px;
     width: 80%;
     border: none;
-    
+
 }
 
 /* Contacts */
 .main-section {
-    height: calc(100% - ( var(--top-section-width) + var(--notif-section-width) + var(--search-section-width)));
+    height: calc(100% - (var(--top-section-width) + var(--notif-section-width) + var(--search-section-width)));
     overflow-y: scroll;
 
     /* debug */
     background-color: lightcoral;
 }
 
-.contact-card {  
+.contact-card {
     background-color: white;
-    
+
     /* debug */
     min-height: 50px;
     /* border: 1px solid black; */
@@ -273,13 +278,14 @@ button {
     background-repeat: no-repeat;
 }
 
-.text-container{
+.text-container {
     position: relative;
     top: 0;
     left: 0;
     display: flex;
     width: 100%;
-    
+
+    overflow-x: hidden;
     /* debug */
     /* border: 1px solid red */
 }
@@ -287,7 +293,7 @@ button {
 .text-container div {
     width: var(--text-container-width);
     border-radius: 10px;
-    
+
     margin: 10px;
     padding: 5px;
 
@@ -307,10 +313,10 @@ button {
     width: auto;
 }
 
-.answer{
-    
+.answer {
+
     background-color: #D5F9BA;
-    align-self: flex-end;
+    align-self: flex-start;
 }
 
 .response {
@@ -324,15 +330,55 @@ button {
     overflow-wrap: anywhere;
     /* overflow-x: hidden; */
 }
+
+/* Dropdown menu */
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: -140px;
+    background-color: #ffffff;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content span{
+    padding: 5px;
+    font-size: 0.5rem;
+    display: block;
+  }
+
+  .dropdown-content:hover span{
+    background-color: #eae4e4;
+  }
+ 
+  .response .dropdown-content {
+    left: -50px;
+  }
+  
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
 /* Type Section */
 .type-section {
     height: var(--type-section-width);
     padding: 5px;
 }
 
-.type-box{
+.type-box {
     flex-grow: 1;
-   
+
     /* debug */
     /* border: 1px solid black; */
 }

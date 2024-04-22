@@ -225,6 +225,10 @@ createApp({
                 console.warn(currElem.visible);
             });
 
+        },
+
+        deleteMessage: function(index){
+            this.contacts[this.activeContact].messages.splice(index,1);
         }
 
     }
