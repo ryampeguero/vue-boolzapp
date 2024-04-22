@@ -94,8 +94,16 @@ button {
 }
 
 /* Utilities */
+.align-self-end {
+    align-self: flex-end;
+}
+
 .p-t-60 {
     padding-top:60px;
+}
+
+.p-t-40 {
+    padding-top: 40px;
 }
 .p-r-20 {
     padding-right: 60px;
@@ -255,7 +263,7 @@ button {
 
 /* Text Section */
 .text-section {
-    max-height: calc(100% - (var(--type-section-width) + var(--top-section-width)));
+    min-height: calc(100% - (var(--type-section-width) + var(--top-section-width)));
     overflow-y: scroll;
 
     background-image: url(../img/mine.jpg);
@@ -293,7 +301,9 @@ button {
     align-items: flex-end;
 }
 
-
+.text-container div {
+    width: auto;
+}
 
 .answer{
     
@@ -307,6 +317,11 @@ button {
     align-self: flex-start;
 }
 
+.text-message {
+    width: 250px;
+    overflow-wrap: anywhere;
+    /* overflow-x: hidden; */
+}
 /* Type Section */
 .type-section {
     height: var(--type-section-width);

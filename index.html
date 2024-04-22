@@ -71,7 +71,7 @@
                     <div class="main-section col">
                         <!-- Contacts -->
                         <!-- Contact1 -->
-                        <div v-for="(curContact, index) in contacts" class="contact-card flex" >
+                        <div v-for="(curContact, index) in contacts" class="contact-card flex" @click="selectContact(index)">
                             <div class="user-icon">
                                 <img :src="`./img/avatar${curContact.avatar}.jpg`" :alt="curContact.name">
                             </div>
@@ -100,12 +100,13 @@
                     <header class="top-section col flex space-between">
                         <div class="contact-card flex">
                             <div class="user-icon">
-                                <img src="./img/avatar_1.jpg" alt="">
+                                <img :src="`./img/avatar${contacts[activeContact].avatar}.jpg`" alt="">
                             </div>
                             <div class="user-icon">
                                 <span class="username">
-                                    Michele
+                                    {{contacts[activeContact].name}}
                                 </span>
+                                <!-- Per dopo 2 -->
                                 <span class="preview">
                                     Ultimo accesso oggi alle 16:26
                                 </span>
@@ -130,16 +131,16 @@
                     <div class="text-section col flex wrap">
 
                         <!-- Answer -->
-                        <div class="text-container flex-end p-t-60">
-                            <div class="answer flex">
-                                <span class="p-r-20">
-                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, cum laboriosam nam
-                                </span>
-                                <span>
+                        <div v-for="(curContact, index) in contacts[activeContact].messages" class="text-container p-t-40" :class="(curContact.status === 'sent') ? 'flex-end' : ''">
+                            <div class="flex" :class="(curContact.status === 'sent') ? 'answer' : 'response'">
+                                <p class="p-r-20 text-message">
+                                    {{curContact.message}}
+                                </p>
+                                <span class="align-self-ends">
                                     <ul class="flex-column space-between preview">
                                         <li><i class="fa-solid fa-chevron-down"></i></li>
                                         <li class="">
-                                            15:13
+                                            {{curContact.date}}
                                         </li>
                                     </ul>
                                 </span>
@@ -147,46 +148,7 @@
                         </div>
                         <!-- /Answer -->
 
-                        <!-- Response -->
-                        <div class="text-container flex">
-                            <div class="response flex">
-                                <span class="p-r-20">
-                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, cum laboriosam nam
-                                    c quae hic, velit possimus rerum suscipit omnis quas? Hic.
-                                </span>
-                                <span>
-                                    <ul class="flex-column space-between preview">
-                                        <li><i class="fa-solid fa-chevron-down"></i></li>
-                                        <li class="">
-                                            15:13
-                                        </li>
-                                    </ul>
-                                </span>
-                            </div>
-                        </div>
-
-
-                        <!-- /Response -->
-
-                        <!-- Answer -->
-                        <div class="text-container flex-end">
-                            <div class="answer flex">
-                                <span class="p-r-20">
-                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, cum laboriosam nam
-                                    commodi deleniti excepturi necessitatibus fuga, obcaecati rem blanditiis sit quae
-                                    hic, velit possimus rerum suscipit omnis quas? Hic.
-                                </span>
-                                <span>
-                                    <ul class="flex-column space-between preview">
-                                        <li><i class="fa-solid fa-chevron-down"></i></li>
-                                        <li class="">
-                                            15:13
-                                        </li>
-                                    </ul>
-                                </span>
-                            </div>
-                        </div>
-                        <!-- /Answer -->
+                        
                     </div>
                     <!-- /Main -->
 
