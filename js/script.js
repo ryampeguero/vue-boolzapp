@@ -5,12 +5,12 @@ createApp({
         return {
             activeContact: 0,
             userText: "",
-
             newMessage: {
                 message: "",
-                date:"22/04/2024",
+                date: "22/04/2024",
                 status: "sent"
             },
+            searchName: "",
             contacts: [
                 {
                     name: 'Michele',
@@ -179,32 +179,52 @@ createApp({
 
     created() {
         console.log(this.contacts[0].avatar);
-        
+
     },
 
     methods: {
-        selectContact: function(index){
+        selectContact: function (index) {
             this.activeContact = index;
             console.log(this.activeContact);
         },
 
-        sendText: function(){
+        sendText: function () {
             console.log(this.contacts[this.activeContact].messages);
             this.newMessage.message = this.userText;
-            if(this.userText != ""){
+            if (this.userText != "") {
                 this.contacts[this.activeContact].messages.push(this.newMessage);
                 this.userText = "";
                 setTimeout(this.botAnswer, 1000)
             }
         },
 
-        botAnswer: function(){
+        botAnswer: function () {
             const botMessage = {
-                message:"Ok",
+                message: "Ok",
                 date: "22/04/2024",
                 status: "received"
             }
             this.contacts[this.activeContact].messages.push(botMessage)
+        },
+
+        searchUser: function () {
+            console.log(this.searchName);
+            this.contacts.forEach((currElem, index) => {
+                console.warn(currElem.name);
+
+                const prova = currElem.name.toLowerCase();
+                const prova2 = this.searchName.toLowerCase();
+
+                console.log(prova);
+                if (prova.indexOf(prova2, 0) === -1) {
+                    currElem.visible = false;
+                } else {
+                    currElem.visible = true;
+                }
+
+                console.warn(currElem.visible);
+            });
+
         }
 
     }

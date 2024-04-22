@@ -233,6 +233,7 @@ button {
 
 .contact-card {  
     background-color: white;
+    
     /* debug */
     min-height: 50px;
     /* border: 1px solid black; */

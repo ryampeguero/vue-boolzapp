@@ -63,7 +63,7 @@
                     <!-- Search -->
                     <div class="search-section col flex">
                         <span><i class="fa-solid fa-magnifying-glass"></i></span>
-                        <input id="search" type="text" placeholder="Cerca o inizia una nuova chat">
+                        <input id="search" type="text" placeholder="Cerca o inizia una nuova chat" @keyup="searchUser" v-model="searchName">
                     </div>
                     <!-- /Search -->
 
@@ -71,7 +71,7 @@
                     <div class="main-section col">
                         <!-- Contacts -->
                         <!-- Contact1 -->
-                        <div v-for="(curContact, index) in contacts" class="contact-card flex" @click="selectContact(index)">
+                        <div v-for="(curContact, index) in contacts" class="contact-card flex" @click="selectContact(index)" v-show="curContact.visible">
                             <div class="user-icon">
                                 <img :src="`./img/avatar${curContact.avatar}.jpg`" :alt="curContact.name">
                             </div>
