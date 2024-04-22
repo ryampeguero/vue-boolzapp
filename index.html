@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boolzapp</title>
+    <!-- VueJs -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+</head>
+
+<body>
+    <div id="app">
+        <!-- HEADER -->
+        <header class="header">
+
+        </header>
+        <!-- /HEADER -->
+
+        <!-- MAIN -->
+        <main class="main">
+            <div class="container bg-white flex">
+                <!-- Scroll Section -->
+                <div class="col-scroll flex wrap">
+                    <!-- Top -->
+                    <div class="top-section col flex space-between">
+                        <div class="user-icon">
+                            <img src="./img/avatar_1.jpg" alt="">
+                        </div>
+
+                        <div class="options-icons">
+                            <ul class="flex">
+                                <li><a href=""><i class="fa-solid fa-circle-notch"></i></a>
+                                </li>
+                                <li><a href=""><i class="fa-solid fa-message"></i></a></li>
+                                <li><a href=""><i class="fa-solid fa-ellipsis-vertical"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /Top -->
+
+                    <!-- Notifications -->
+                    <div class="notif-section col flex">
+                        <div class="notification-icon">
+                            <i class="fa-solid fa-bell-slash"></i>
+                        </div>
+                        <div class="notification-text">
+                            <span>Ricevi notifiche di nuovi messaggi</span>
+                            <span><a href="">Attiva notifiche desktop</a></span>
+                        </div>
+                    </div>
+                    <!-- /Notifications -->
+
+                    <!-- Search -->
+                    <div class="search-section col flex">
+                        <span><i class="fa-solid fa-magnifying-glass"></i></span>
+                        <input id="search" type="text" placeholder="Cerca o inizia una nuova chat">
+                    </div>
+                    <!-- /Search -->
+
+                    <!-- Main -->
+                    <div class="main-section col">
+                        <!-- Contacts -->
+                        <div class="contact-card flex">
+                            <div class="user-icon">
+                                <img src="./img/avatar_1.jpg" alt="">
+                            </div>
+                            <div class="user-icon">
+                                <span class="username">
+                                    Michele
+                                </span>
+                                <span class="preview">
+                                    Lorem ipsum dolor sit amet
+                                </span>
+                            </div>
+                        </div>
+                        <div class="contact-card flex">
+                            <div class="user-icon">
+                                <img src="./img/avatar_1.jpg" alt="">
+                            </div>
+                            <div class="user-icon">
+                                <span class="username">
+                                    Michele
+                                </span>
+                                <span class="preview">
+                                    Lorem ipsum dolor sit amet
+                                </span>
+                            </div>
+                        </div>
+                        <div class="contact-card flex">
+                            <div class="user-icon">
+                                <img src="./img/avatar_1.jpg" alt="">
+                            </div>
+                            <div class="user-icon">
+                                <span class="username">
+                                    Michele
+                                </span>
+                                <span class="preview">
+                                    Lorem ipsum dolor sit amet
+                                </span>
+                            </div>
+                        </div>
+                        <div class="contact-card flex">
+                            <div class="user-icon">
+                                <img src="./img/avatar_1.jpg" alt="">
+                            </div>
+                            <div class="user-icon">
+                                <span class="username">
+                                    Michele
+                                </span>
+                                <span class="preview">
+                                    Lorem ipsum dolor sit amet
+                                </span>
+                            </div>
+                        </div>
+                        <div class="contact-card flex">
+                            <div class="user-icon">
+                                <img src="./img/avatar_1.jpg" alt="">
+                            </div>
+                            <div class="user-icon">
+                                <span class="username">
+                                    Michele
+                                </span>
+                                <span class="preview">
+                                    Lorem ipsum dolor sit amet
+                                </span>
+                            </div>
+                        </div>
+                        <!-- /Contacts -->
+                    </div>
+                    <!-- /Main -->
+                </div>
+                <!-- /Scroll Section -->
+
+                <!-- Main WebApp Section -->
+                <div class="col-main flex wrap">
+
+                    <!-- Top -->
+                    <!-- Rightside -->
+                    <header class="top-section col flex space-between">
+                        <div class="contact-card flex">
+                            <div class="user-icon">
+                                <img src="./img/avatar_1.jpg" alt="">
+                            </div>
+                            <div class="user-icon">
+                                <span class="username">
+                                    Michele
+                                </span>
+                                <span class="preview">
+                                    Ultimo accesso oggi alle 16:26
+                                </span>
+                            </div>
+                        </div>
+                        <!-- /Right side -->
+
+                        <!-- Left Side -->
+                        <div class="options-icons">
+                            <ul class="flex">
+                                <li><a href=""><i class="fa-solid fa-magnifying-glass"></i></i></a>
+                                </li>
+                                <li><a href=""><i class="fa-solid fa-paperclip"></i></a></li>
+                                <li><a href=""><i class="fa-solid fa-ellipsis-vertical"></i></a></li>
+                            </ul>
+                        </div>
+                        <!-- /Left Side -->
+                    </header>
+                    <!-- /Top -->
+
+                    <!-- Main -->
+                    <div class="text-section col flex wrap">
+
+                        <!-- Answer -->
+                        <div class="text-container flex-end p-t-60">
+                            <div class="answer flex">
+                                <span class="p-r-20">
+                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, cum laboriosam nam
+                                </span>
+                                <span>
+                                    <ul class="flex-column space-between preview">
+                                        <li><i class="fa-solid fa-chevron-down"></i></li>
+                                        <li class="">
+                                            15:13
+                                        </li>
+                                    </ul>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- /Answer -->
+
+                        <!-- Response -->
+                        <div class="text-container flex">
+                            <div class="response flex">
+                                <span class="p-r-20">
+                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, cum laboriosam nam
+                                    c quae hic, velit possimus rerum suscipit omnis quas? Hic.
+                                </span>
+                                <span>
+                                    <ul class="flex-column space-between preview">
+                                        <li><i class="fa-solid fa-chevron-down"></i></li>
+                                        <li class="">
+                                            15:13
+                                        </li>
+                                    </ul>
+                                </span>
+                            </div>
+                        </div>
+
+
+                        <!-- /Response -->
+
+                        <!-- Answer -->
+                        <div class="text-container flex-end">
+                            <div class="answer flex">
+                                <span class="p-r-20">
+                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, cum laboriosam nam
+                                    commodi deleniti excepturi necessitatibus fuga, obcaecati rem blanditiis sit quae
+                                    hic, velit possimus rerum suscipit omnis quas? Hic.
+                                </span>
+                                <span>
+                                    <ul class="flex-column space-between preview">
+                                        <li><i class="fa-solid fa-chevron-down"></i></li>
+                                        <li class="">
+                                            15:13
+                                        </li>
+                                    </ul>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- /Answer -->
+                    </div>
+                    <!-- /Main -->
+
+                    <!-- Bottom -->
+                    <div class="type-section col flex space-between">
+
+                        <span class="type-icon">
+                            <a href=""><i class="fa-regular fa-face-smile"></i></a>
+                        </span>
+
+                        <span class="type-box">
+                            <input id="typewriter" type="text" placeholder="Scrivi un messaggio">
+                        </span>
+
+                        <span class="type-icon">
+                            <a href=""><i class="fa-solid fa-microphone"></i></a>
+                        </span>
+                    </div>
+                    <!-- /Bottom -->
+                </div>
+                <!-- /Main WebApp Section -->
+            </div>
+        </main>
+        <!-- /MAIN -->
+    </div>
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

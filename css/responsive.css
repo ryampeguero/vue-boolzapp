@@ -1,0 +1,52 @@
+/* DESKTOP FIRST */
+
+@media screen and (max-width: 992px) {
+    :root {
+        --scroll-col-width: 60px;
+        --top-section-width: 60px;
+
+        --text-container-width: 300px;
+    }
+
+    .header {
+        height: 0;
+    }
+
+    .notif-section,
+    .search-section,
+    .options-icons,
+    .main-section .contact-card .user-icon:nth-child(2) {
+        display: none;
+    }
+
+    .user-icon {}
+    .main-section {
+        height: calc(100% - var(--top-section-width));
+        overflow-y: scroll;
+    }
+    
+
+    .container {
+        position: static;
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    
+    .type-icon {
+        display: none;
+    }
+
+    .col-scroll {
+        visibility: hidden;
+        width: 0%;
+    }
+
+    .col-main {
+        width: 100%;
+    }
+}

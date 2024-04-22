@@ -1,0 +1,334 @@
+:root {
+    --scroll-col-width: 300px;
+    --top-section-width: 60px;
+    --notif-section-width: 50px;
+    --search-section-width: 30px;
+
+    --text-container-width: 400px;
+    --type-section-width: 40px;
+}
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #D6DBD8;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+img {
+    max-width: 100%;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #B1B1B1;
+}
+
+button {
+    background-color: transparent;
+    border: 0;
+    margin: 10px;
+    color: #B1B1B1;
+    font-size: 1.4rem;
+}
+/* COMMON */
+/* Layout */
+.container {
+    margin: 0 auto;
+    width: 80vw;
+    max-width: 1000px;
+    height: 80vh;
+    
+    position: fixed;
+    top: 50px;
+    left: 0;
+    right: 0;
+
+    z-index: 9999;
+    /* debug */
+    /* border: 1px solid black; */
+}
+.col {
+    width: 100%;
+    /* debug */
+    /* border: 1px solid black; */
+}
+
+
+/* FLEX SETTINGS */
+.flex {
+    display: flex;
+    flex-shrink: 0;
+    /* justify-content: center; */
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-end {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+/* Background colors */
+.bg-white {
+    background-color: white;
+}
+
+/* Utilities */
+.p-t-60 {
+    padding-top:60px;
+}
+.p-r-20 {
+    padding-right: 60px;
+}
+
+/* HEADER */
+.header {
+    background-color: #009688;
+    height: 150px;
+    max-height: 30vh;
+}
+
+/* MAIN */
+.col-scroll {
+    width: var(--scroll-col-width);
+  
+    /* debug */
+      /* height: 100%; */
+    /* border: 1px solid black; */
+}
+
+.col-main {
+    width: calc(100% - var(--scroll-col-width));
+    
+    /* debug */
+    /* height: 100%; */
+    /* border: 1px solid black; */
+}
+
+/* Left col*/
+/* Top section */
+.top-section {
+    height: var(--top-section-width);
+    /* debug */
+    /* border: 1px solid black; */
+    background-color: #EAEAEA;
+}
+
+/* Icons */
+.user-icon {
+    padding: 10px;
+    /* debug */
+    /* background-color: white; */
+}
+.user-icon img{
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+}
+
+.options-icons {
+    margin: 10px;
+    color: #B1B1B1;
+    font-size: 1.4rem;
+    
+    /* debug */ 
+    /* background-color: white; */
+    /* border: 1px solid black; */
+}
+
+.options-icons li {
+    padding: 0 10px;
+    margin: 10px 5px;
+    /* debug */
+    /* border: 1px solid black; */
+}
+
+/* Notifications Section */
+.notif-section {
+    height: var(--notif-section-width);
+    padding: 5px 10px;
+    /* debug */
+    background-color: #8EDAFC;
+}
+
+.notification-icon {
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: #8EDAFC;
+    background-color: white;
+    /* debug */
+    /* border: 1px solid black; */
+}
+
+.notification-text {
+    padding: 10px 0;
+    padding-left: 5px;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.notification-text a {
+    font-size: 0.6rem;
+    text-decoration: underline;
+}
+
+/* Search Section */
+
+.search-section {
+    height: var(--search-section-width);
+    padding: 5px;
+    color: #B1B1B1;
+    /* debug */
+    background-color: white;
+}
+
+#search {
+    margin: 0 5px;
+    height: 20px;
+    width: 80%;
+    border: none;
+    
+}
+
+/* Contacts */
+.main-section {
+    height: calc(100% - ( var(--top-section-width) + var(--notif-section-width) + var(--search-section-width)));
+    overflow-y: scroll;
+
+    /* debug */
+    background-color: lightcoral;
+}
+
+.contact-card {  
+    background-color: white;
+    /* debug */
+    min-height: 50px;
+    /* border: 1px solid black; */
+}
+
+.username {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.preview {
+    display: block;
+    padding-top: 5px;
+    font-size: 0.7rem;
+    color: lightgray;
+}
+
+/* Right Col */
+/* Top Section Text */
+.col-main .contact-card {
+    background-color: #EAEAEA;
+}
+
+.col-main .preview {
+    display: flex;
+    color: gray;
+}
+
+/* Text Section */
+.text-section {
+    max-height: calc(100% - (var(--type-section-width) + var(--top-section-width)));
+    overflow-y: scroll;
+
+    background-image: url(../img/mine.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.text-container{
+    position: relative;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    
+    /* debug */
+    /* border: 1px solid red */
+}
+
+.text-container div {
+    width: var(--text-container-width);
+    border-radius: 10px;
+    
+    margin: 10px;
+    padding: 5px;
+
+    font-size: 0.9rem;
+    /* debug */
+    /* height: 50px; */
+
+}
+
+
+.text-container ul {
+    height: 100%;
+    align-items: flex-end;
+}
+
+
+
+.answer{
+    
+    background-color: #D5F9BA;
+    align-self: flex-end;
+}
+
+.response {
+    left: 0;
+    background-color: white;
+    align-self: flex-start;
+}
+
+/* Type Section */
+.type-section {
+    height: var(--type-section-width);
+    padding: 5px;
+}
+
+.type-box{
+    flex-grow: 1;
+   
+    /* debug */
+    /* border: 1px solid black; */
+}
+
+.type-box input {
+    margin: 0 5px;
+    height: 100%;
+    width: 100%;
+    border: none;
+}
+
+.type-icon {
+    padding: 5px 5px;
+    /* debug */
+    /* border: 1px solid black; */
+}
