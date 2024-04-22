@@ -70,71 +70,22 @@
                     <!-- Main -->
                     <div class="main-section col">
                         <!-- Contacts -->
-                        <div class="contact-card flex">
+                        <!-- Contact1 -->
+                        <div v-for="(curContact, index) in contacts" class="contact-card flex" >
                             <div class="user-icon">
-                                <img src="./img/avatar_1.jpg" alt="">
+                                <img :src="`./img/avatar${curContact.avatar}.jpg`" :alt="curContact.name">
                             </div>
                             <div class="user-icon">
                                 <span class="username">
-                                    Michele
+                                    {{curContact.name}}
                                 </span>
+                                <!-- Per Dopo 1 -->
                                 <span class="preview">
                                     Lorem ipsum dolor sit amet
                                 </span>
                             </div>
                         </div>
-                        <div class="contact-card flex">
-                            <div class="user-icon">
-                                <img src="./img/avatar_1.jpg" alt="">
-                            </div>
-                            <div class="user-icon">
-                                <span class="username">
-                                    Michele
-                                </span>
-                                <span class="preview">
-                                    Lorem ipsum dolor sit amet
-                                </span>
-                            </div>
-                        </div>
-                        <div class="contact-card flex">
-                            <div class="user-icon">
-                                <img src="./img/avatar_1.jpg" alt="">
-                            </div>
-                            <div class="user-icon">
-                                <span class="username">
-                                    Michele
-                                </span>
-                                <span class="preview">
-                                    Lorem ipsum dolor sit amet
-                                </span>
-                            </div>
-                        </div>
-                        <div class="contact-card flex">
-                            <div class="user-icon">
-                                <img src="./img/avatar_1.jpg" alt="">
-                            </div>
-                            <div class="user-icon">
-                                <span class="username">
-                                    Michele
-                                </span>
-                                <span class="preview">
-                                    Lorem ipsum dolor sit amet
-                                </span>
-                            </div>
-                        </div>
-                        <div class="contact-card flex">
-                            <div class="user-icon">
-                                <img src="./img/avatar_1.jpg" alt="">
-                            </div>
-                            <div class="user-icon">
-                                <span class="username">
-                                    Michele
-                                </span>
-                                <span class="preview">
-                                    Lorem ipsum dolor sit amet
-                                </span>
-                            </div>
-                        </div>
+                        <!-- /Contact1 -->
                         <!-- /Contacts -->
                     </div>
                     <!-- /Main -->

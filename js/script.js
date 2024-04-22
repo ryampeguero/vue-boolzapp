@@ -170,7 +170,7 @@ createApp({
     },
 
     created() {
-        console.log(this.contacts);
+        console.log(this.contacts[0].avatar);
     },
 
     methods: {
