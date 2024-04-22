@@ -4,8 +4,10 @@ createApp({
     data() {
         return {
             activeContact: 0,
+            userText: "",
+
             newMessage: {
-                message:"",
+                message: "",
                 date:"22/04/2024",
                 status: "sent"
             },
@@ -188,10 +190,12 @@ createApp({
 
         sendText: function(){
             console.log(this.contacts[this.activeContact].messages);
-            
-            this.contacts[this.activeContact].messages.push(this.newMessage);
-
-            setTimeout(this.botAnswer, 1000)
+            this.newMessage.message = this.userText;
+            if(this.userText != ""){
+                this.contacts[this.activeContact].messages.push(this.newMessage);
+                this.userText = "";
+                setTimeout(this.botAnswer, 1000)
+            }
         },
 
         botAnswer: function(){
