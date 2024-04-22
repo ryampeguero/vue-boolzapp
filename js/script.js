@@ -4,6 +4,11 @@ createApp({
     data() {
         return {
             activeContact: 0,
+            newMessage: {
+                message:"",
+                date:"22/04/2024",
+                status: "sent"
+            },
             contacts: [
                 {
                     name: 'Michele',
@@ -172,12 +177,31 @@ createApp({
 
     created() {
         console.log(this.contacts[0].avatar);
+        
     },
 
     methods: {
         selectContact: function(index){
             this.activeContact = index;
-            console.log(this.   activeContact);
+            console.log(this.activeContact);
+        },
+
+        sendText: function(){
+            console.log(this.contacts[this.activeContact].messages);
+            
+            this.contacts[this.activeContact].messages.push(this.newMessage);
+
+            setTimeout(this.botAnswer, 1000)
+        },
+
+        botAnswer: function(){
+            const botMessage = {
+                message:"Ok",
+                date: "22/04/2024",
+                status: "received"
+            }
+            this.contacts[this.activeContact].messages.push(botMessage)
         }
+
     }
 }).mount("#app")

@@ -160,7 +160,7 @@
                         </span>
 
                         <span class="type-box">
-                            <input id="typewriter" type="text" placeholder="Scrivi un messaggio">
+                            <input id="typewriter" type="text" placeholder="Scrivi un messaggio" v-model="newMessage.message" @keyup.enter="sendText">
                         </span>
 
                         <span class="type-icon">
