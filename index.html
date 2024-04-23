@@ -120,7 +120,7 @@
                                 </span>
                                 <!-- Per dopo 2 -->
                                 <span class="preview">
-                                    Ultimo accesso oggi alle 16:26
+                                   {{isOnline}}
                                 </span>
                             </div>
                         </div>
@@ -129,10 +129,19 @@
                         <!-- Left Side -->
                         <div class="options-icons">
                             <ul class="flex">
-                                <li><a href=""><i class="fa-solid fa-magnifying-glass"></i></i></a>
+                                <li><button href=""><i class="fa-solid fa-magnifying-glass"></i></i></button>
                                 </li>
-                                <li><a href=""><i class="fa-solid fa-paperclip"></i></a></li>
-                                <li><a href=""><i class="fa-solid fa-ellipsis-vertical"></i></a></li>
+                                <li><button href=""><i class="fa-solid fa-paperclip"></i></button></li>
+                                <li>
+                                    <button class="top-button"  href="">
+                                        <i class="fa-solid fa-ellipsis-vertical dropdown">
+                                            <div class="dropdown-content">
+                                                <span @click="deleteAllMessages()">Elimina messaggio</span>
+                                                <span @click="deleteContact()">Elimina contatto</span>
+                                            </div>
+                                        </i>
+                                    </button>
+                                </li>
                             </ul>
                         </div>
                         <!-- /Left Side -->

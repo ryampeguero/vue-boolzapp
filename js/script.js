@@ -5,6 +5,7 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
+            isOnline: dt.now().toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS),
             rndControl: null,
             planeBool: true,
             activeContact: 0,
@@ -203,12 +204,14 @@ createApp({
             if (this.userText != "") {
                 this.contacts[this.activeContact].messages.push(newMessage);
                 this.userText = "";
-                setTimeout(this.botAnswer, 1000)
+                this.isOnline = "Online"
+                setTimeout(this.botAnswer, 3000)
             }
         },
 
         botAnswer: function () {
             const currTime = this.setCurrentTime().toString();
+
             let rndAnswer = "";
             switch (this.getRndInt()) {
                 case 1:
@@ -241,8 +244,13 @@ createApp({
                 date: currTime,
                 status: "received"
             }
+
+            const prova = this.getIsOnline();
+            console.warn(prova);
+
             this.contacts[this.activeContact].messages.push(botMessage)
 
+            this.clearMyInterval(prova);
         },
 
         getRndInt: function () {
@@ -284,6 +292,26 @@ createApp({
                 this.contacts[this.activeContact].messages.splice(index, 1);
         },
 
+        deleteAllMessages: function(){
+            console.log(this.contacts[this.activeContact].messages);
+            if (this.contacts[this.activeContact].messages.length > 0)
+                this.contacts[this.activeContact].messages.splice(0, this.contacts[this.activeContact].messages.length);
+        },
+
+        deleteContact: function(){
+            // console.log(this.contacts[this.activeContact]);
+            const newContact = {
+                avatar:"",
+
+            }
+            if (this.contacts.length > 0)
+                this.contacts.splice(this.activeContact, 1);
+            else{
+                this.contacts = newContact;
+            }
+
+        },
+
         getLastMessage: function (index) {
             // console.warn(index);
             const currLastMessage = {
@@ -305,11 +333,24 @@ createApp({
         },
 
         setCurrentTime: function () {
+            
             const dateTime = dt.now();
             const currentDateTime = dateTime.toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS);
             console.log(currentDateTime);
-
+            
+            this.isOnline = currentDateTime;
             return currentDateTime;
+        },
+
+
+        getIsOnline: function(){
+            const intervalOnline = setInterval(this.setCurrentTime, 2000);
+            
+            return intervalOnline;
+        },
+
+        clearMyInterval: function(numb){
+            clearInterval(numb);
         },
 
         setPlane: function () {
@@ -321,8 +362,7 @@ createApp({
                 this.planeBool = false;
 
             }
-        }
-
+        },
 
     }
 }).mount("#app")
