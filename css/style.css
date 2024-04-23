@@ -87,6 +87,10 @@ button {
     flex-wrap: wrap;
 }
 
+.no-wrap {
+    flex-wrap: nowrap;
+}
+
 .space-between {
     justify-content: space-between;
 }
@@ -103,10 +107,6 @@ button {
 
 .p-t-60 {
     padding-top: 60px;
-}
-
-.p-t-40 {
-    /* padding-top: 40px; */
 }
 
 .p-r-20 {
@@ -159,6 +159,19 @@ button {
     height: 40px;
     border-radius: 50%;
 
+}
+
+.user-icon > .user-info {
+    width: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.lastdate{
+    position: relative;
+    top: 0;
+    left: 120px;
 }
 
 .options-icons {
@@ -231,7 +244,7 @@ button {
 .main-section {
     height: calc(100% - (var(--top-section-width) + var(--notif-section-width) + var(--search-section-width)));
     overflow-y: scroll;
-
+    overflow-x: hidden;
     /* debug */
     background-color: lightcoral;
 }

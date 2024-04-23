@@ -1,3 +1,5 @@
+const dt = luxon.DateTime;
+
 const { createApp } = Vue;
 
 createApp({
@@ -5,11 +7,6 @@ createApp({
         return {
             activeContact: 0,
             userText: "",
-            newMessage: {
-                message: "",
-                date: "22/04/2024",
-                status: "sent"
-            },
             searchName: "",
             contacts: [
                 {
@@ -179,7 +176,8 @@ createApp({
 
     created() {
         console.log(this.contacts[0].avatar);
-
+        // console.log(this.dt.now());
+        this.setCurrentTime();
     },
 
     methods: {
@@ -190,9 +188,16 @@ createApp({
 
         sendText: function () {
             console.log(this.contacts[this.activeContact].messages);
-            this.newMessage.message = this.userText;
+            const newMessage = {
+                message: "",
+                date: "22/04/2024",
+                status: "sent"
+            };
+
+            newMessage.message = this.userText;
+
             if (this.userText != "") {
-                this.contacts[this.activeContact].messages.push(this.newMessage);
+                this.contacts[this.activeContact].messages.push(newMessage);
                 this.userText = "";
                 setTimeout(this.botAnswer, 1000)
             }
@@ -227,9 +232,36 @@ createApp({
 
         },
 
-        deleteMessage: function(index){
-            this.contacts[this.activeContact].messages.splice(index,1);
+        deleteMessage: function (index) {
+            console.log(this.contacts[this.activeContact].messages);
+            if (this.contacts[this.activeContact].messages.length > 0)
+                this.contacts[this.activeContact].messages.splice(index, 1);
+        },
+
+        getLastMessage: function (index) {
+            // console.warn(index);
+            const currLastMessage = {
+                text: "",
+                date: "",
+            }
+
+            if (this.contacts[index].messages.length > 0) {
+                currLastMessage.text = this.contacts[index].messages[this.contacts[index].messages.length - 1].message;
+                currLastMessage.date = this.contacts[index].messages[this.contacts[index].messages.length - 1].date;
+                return currLastMessage;
+            } else {
+                currLastMessage.text = "Nessun messaggio Disponibile"
+                currLastMessage.date = "00/00/0000"
+                return currLastMessage;
+            }
+
+
+        },
+
+        setCurrentTime: function () {
+            console.log(dt.now());
         }
+
 
     }
 }).mount("#app")
