@@ -6,6 +6,7 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
+            rndControl: null,
             activeContact: 0,
             userText: "",
             searchName: "",
@@ -178,7 +179,7 @@ createApp({
     created() {
         console.log(this.contacts[0].avatar);
         // console.log(this.dt.now());
-       console.warn();
+        console.warn();
     },
 
     methods: {
@@ -207,12 +208,52 @@ createApp({
 
         botAnswer: function () {
             const currTime = this.setCurrentTime().toString();
+            let rndAnswer = "";
+            switch (this.getRndInt()) {
+                case 1:
+                    rndAnswer = "Che bella giornata"
+                    break;
+
+                case 2:
+                    rndAnswer = "Sto bene e tu?"
+                    break;
+
+                case 3:
+                    rndAnswer = "Domani mi sposo con ChatGPT"
+                    break;
+
+                case 4:
+                    rndAnswer = "Sto morendo di fame"
+                    break;
+
+                case 5:
+                    rndAnswer = "Non ho niente, lasciami stare"
+                    break;
+
+                default:
+                    rndAnswer = "Ok"
+                    break;
+            }
+
             const botMessage = {
-                message: "Ok",
+                message: rndAnswer,
                 date: currTime,
                 status: "received"
             }
             this.contacts[this.activeContact].messages.push(botMessage)
+        },
+
+        getRndInt: function () {
+            let rndNumb = Math.floor(Math.random() * (5 - 1)) + 1;
+
+            if (rndNumb != this.rndControl) {
+                this.rndControl = rndNumb;
+                return rndNumb;
+            } else {
+                this.rndControl = rndNumb;
+                this.getRndInt();
+            }
+
         },
 
         searchUser: function () {
@@ -254,7 +295,7 @@ createApp({
                 return currLastMessage;
             } else {
                 currLastMessage.text = "Nessun messaggio Disponibile"
-                currLastMessage.date = "00/00/0000"
+                currLastMessage.date = "00/00/0000 00:00:00"
                 return currLastMessage;
             }
 
@@ -265,7 +306,7 @@ createApp({
             const dateTime = dt.now();
             const currentDateTime = dateTime.toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS);
             console.log(currentDateTime);
-            
+
             return currentDateTime;
         }
 

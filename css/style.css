@@ -285,6 +285,7 @@ button {
     min-height: calc(100% - (var(--type-section-width) + var(--top-section-width)));
     max-height: calc(100% - (var(--type-section-width) + var(--top-section-width)));
     overflow-y: scroll;
+    
 
     background-image: url(../img/mine.jpg);
     background-size: cover;
