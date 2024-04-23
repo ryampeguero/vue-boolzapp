@@ -15,11 +15,10 @@
     .notif-section,
     .search-section,
     .options-icons,
-    .main-section .contact-card .user-icon:nth-child(2) {
+    .main-section .contact-card .user-info:nth-child(2) {
         display: none;
     }
 
-    .user-icon {}
     .main-section {
         height: calc(100% - var(--top-section-width));
         overflow-y: scroll;

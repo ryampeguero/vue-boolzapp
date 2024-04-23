@@ -176,18 +176,24 @@
                     <!-- Bottom -->
                     <div class="type-section col flex space-between">
 
-                        <span class="type-icon">
-                            <a href=""><i class="fa-regular fa-face-smile"></i></a>
-                        </span>
+                        <div class="type-icon">
+                            <button href=""><i class="fa-regular fa-face-smile"></i></button>
+                        </div>
 
-                        <span class="type-box">
-                            <input id="typewriter" type="text" placeholder="Scrivi un messaggio" v-model="userText"
-                                @keyup.enter="sendText">
-                        </span>
+                        <div class="type-box">
+                            <input id="typewriter" type="text" placeholder="Scrivi un messaggio" v-model.trim="userText"
+                                @keyup.enter="sendText" @keyup="setPlane">
+                        </div>
 
-                        <span class="type-icon">
-                            <a href=""><i class="fa-solid fa-microphone"></i></a>
-                        </span>
+                        <div class="type-icon">
+                            <button v-if="planeBool">
+                                <i class="fa-solid fa-microphone"></i>
+                            </button>
+                            
+                            <button v-else="planeBool" @click="sendText">
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                        </div>
                     </div>
                     <!-- /Bottom -->
                 </div>

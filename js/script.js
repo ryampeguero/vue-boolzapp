@@ -1,12 +1,12 @@
 const dt = luxon.DateTime;
 
-
 const { createApp } = Vue;
 
 createApp({
     data() {
         return {
             rndControl: null,
+            planeBool: true,
             activeContact: 0,
             userText: "",
             searchName: "",
@@ -190,6 +190,7 @@ createApp({
 
         sendText: function () {
             console.log(this.contacts[this.activeContact].messages);
+            this.planeBool = true;
             const currTime = this.setCurrentTime().toString();
             const newMessage = {
                 message: "",
@@ -241,6 +242,7 @@ createApp({
                 status: "received"
             }
             this.contacts[this.activeContact].messages.push(botMessage)
+
         },
 
         getRndInt: function () {
@@ -308,6 +310,17 @@ createApp({
             console.log(currentDateTime);
 
             return currentDateTime;
+        },
+
+        setPlane: function () {
+            this.planeBool = false;
+
+            if (this.userText == '') {
+                this.planeBool = true;
+            } else {
+                this.planeBool = false;
+
+            }
         }
 
 

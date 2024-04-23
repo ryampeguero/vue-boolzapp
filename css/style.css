@@ -41,6 +41,17 @@ button {
     font-size: 1.4rem;
 }
 
+div button {
+    position: relative;
+    top: -10px;
+    left: -10px;
+    background-color: transparent;
+    border: 0;
+    width: 100%;
+    height: 10px;
+    color: #B1B1B1;
+    font-size: 1rem;
+}
 /* COMMON */
 /* Layout */
 .container {
@@ -284,7 +295,7 @@ button {
 .text-section {
     min-height: calc(100% - (var(--type-section-width) + var(--top-section-width)));
     max-height: calc(100% - (var(--type-section-width) + var(--top-section-width)));
-    overflow-y: scroll;
+    overflow-y: auto;
     
 
     background-image: url(../img/mine.jpg);
