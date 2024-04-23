@@ -1,5 +1,6 @@
 const dt = luxon.DateTime;
 
+
 const { createApp } = Vue;
 
 createApp({
@@ -177,7 +178,7 @@ createApp({
     created() {
         console.log(this.contacts[0].avatar);
         // console.log(this.dt.now());
-        this.setCurrentTime();
+       console.warn();
     },
 
     methods: {
@@ -188,9 +189,10 @@ createApp({
 
         sendText: function () {
             console.log(this.contacts[this.activeContact].messages);
+            const currTime = this.setCurrentTime().toString();
             const newMessage = {
                 message: "",
-                date: "22/04/2024",
+                date: currTime,
                 status: "sent"
             };
 
@@ -204,9 +206,10 @@ createApp({
         },
 
         botAnswer: function () {
+            const currTime = this.setCurrentTime().toString();
             const botMessage = {
                 message: "Ok",
-                date: "22/04/2024",
+                date: currTime,
                 status: "received"
             }
             this.contacts[this.activeContact].messages.push(botMessage)
@@ -259,7 +262,11 @@ createApp({
         },
 
         setCurrentTime: function () {
-            console.log(dt.now());
+            const dateTime = dt.now();
+            const currentDateTime = dateTime.toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS);
+            console.log(currentDateTime);
+            
+            return currentDateTime;
         }
 
 
