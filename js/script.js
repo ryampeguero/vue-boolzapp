@@ -6,6 +6,7 @@ createApp({
     data() {
         return {
             isOnline: dt.now().toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS),
+            botIndex: 0,
             rndControl: null,
             planeBool: true,
             activeContact: 0,
@@ -190,8 +191,10 @@ createApp({
         },
 
         sendText: function () {
+            botIndex = this.activeContact;
             console.log(this.contacts[this.activeContact].messages);
             this.planeBool = true;
+            
             const currTime = this.setCurrentTime().toString();
             const newMessage = {
                 message: "",
@@ -248,7 +251,7 @@ createApp({
             const prova = this.getIsOnline();
             console.warn(prova);
 
-            this.contacts[this.activeContact].messages.push(botMessage)
+            this.contacts[this.botIndex].messages.push(botMessage)
 
             this.clearMyInterval(prova);
         },
@@ -295,7 +298,7 @@ createApp({
         deleteAllMessages: function(){
             console.log(this.contacts[this.activeContact].messages);
             if (this.contacts[this.activeContact].messages.length > 0)
-                this.contacts[this.activeContact].messages.splice(0, this.contacts[this.activeContact].messages.length);
+                this.contacts[this.activeContact].messages = [];
         },
 
         deleteContact: function(){
